@@ -14,8 +14,8 @@ def analyze():
     movie_title = request.form['movie_title']
     
     # Envoyer les données à l'API Azure Text Analytics pour analyse de sentiment
-    subscription_key = '<votre clé dabonnement Azure>'
-    endpoint = '<votre endpoint Azure>'
+    subscription_key = 'fbc517233178440e9c97da8d49fbb87a'
+    endpoint = 'https://cognitive-jc-review.cognitiveservices.azure.com/'
     text_analytics_url = endpoint + '/text/analytics/v3.0/sentiment'
     headers = {'Ocp-Apim-Subscription-Key': subscription_key}
     data = {'documents': [{'id': '1', 'text': movie_title}]}
