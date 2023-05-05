@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 import requests
 import json
-
+import logging
+logging.basicConfig(filename='app.log', level=logging.DEBUG)
 app = Flask(__name__)
 
 @app.route('/')
