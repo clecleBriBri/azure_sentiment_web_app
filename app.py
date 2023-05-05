@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
-
+import os
 def authenticate_client():
-    key = "fbc517233178440e9c97da8d49fbb87a"
+    key = os.environ["AZURE_TEXT_ANALYTICS_KEY"]
     endpoint = "https://cognitive-jc-review.cognitiveservices.azure.com/"
     credential = AzureKeyCredential(key)
     client = TextAnalyticsClient(endpoint=endpoint, credential=credential)
