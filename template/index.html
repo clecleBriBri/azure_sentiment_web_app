@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sentiment Analysis</title>
+</head>
+
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form method="POST">
+        <label for="text">Enter text:</label>
+        <input type="text" id="text" name="text">
+        <button type="submit">Analyze</button>
+    </form>
+    {% if results %}
+    <h2>Results:</h2>
+    {% for result in results %}
+    <p>{{ result.text }}</p>
+    <p>Sentiment: {{ result.sentiment }}</p>
+    <p>Positive confidence: {{ result.positive }}</p>
+    <p>Neutral confidence: {{ result.neutral }}</p>
+    <p>Negative confidence: {{ result.negative }}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>
