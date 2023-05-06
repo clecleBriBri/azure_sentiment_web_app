@@ -8,6 +8,7 @@ from db import DBSentiment
 
 def authenticate_client():
     key = os.environ.get("AZURE_TEXT_ANALYTICS_KEY")
+    key = os.environ["AZURE_TEXT_ANALYTICS_KEY"]
     endpoint = "https://cognitive-jc-review.cognitiveservices.azure.com/"
     credential = AzureKeyCredential(key)
     client = TextAnalyticsClient(endpoint=endpoint, credential=credential)

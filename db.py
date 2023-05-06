@@ -8,7 +8,7 @@ class DBSentiment:
             host="c.cluster-jc-review.postgres.database.azure.com",
             database="citus",
             user="citus",
-            password=os.environ.get("DB_PASSWORD"),
+            password=os.environ["DB_PASSWORD"],
         )
 
     def show_all(self):
