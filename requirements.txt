@@ -2,3 +2,5 @@ Flask==2.1.1
 gunicorn==20.1.0
 azure-ai-textanalytics
 azure-core
+psycopg2
+requests

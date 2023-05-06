@@ -13,14 +13,12 @@
         <button type="submit">Analyze</button>
     </form>
     {% if results %}
-    <h2>Results:</h2>
-    {% for result in results %}
-    <p>{{ result.text }}</p>
-    <p>Sentiment: {{ result.sentiment }}</p>
-    <p>Positive confidence: {{ result.positive }}</p>
-    <p>Neutral confidence: {{ result.neutral }}</p>
-    <p>Negative confidence: {{ result.negative }}</p>
-    {% endfor %}
+    <h2>results:</h2>
+    <p>{{ results.text }}</p>
+    <p>Sentiment: {{ results.sentiment }}</p>
+    <p>Positive confidence: {{ results.positive }}</p>
+    <p>Neutral confidence: {{ results.neutral }}</p>
+    <p>Negative confidence: {{ results.negative }}</p>
     {% endif %}
 </body>
 
