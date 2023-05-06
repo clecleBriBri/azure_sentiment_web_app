@@ -6,7 +6,7 @@ import requests
 
 
 def authenticate_client():
-    key = os.environ["AZURE_TEXT_ANALYTICS_KEY"]
+    key = "fbc517233178440e9c97da8d49fbb87a"
     endpoint = "https://cognitive-jc-review.cognitiveservices.azure.com/"
     credential = AzureKeyCredential(key)
     client = TextAnalyticsClient(endpoint=endpoint, credential=credential)
@@ -31,8 +31,7 @@ def getReviews(name: str):
     url = "https://fct-app-jc-review.azurewebsites.net/api/GetComments?code=N8Ttd1qwvB3iEaMhw0eJkkSf4XLmKlikMVPa3nazF5jJAzFuPesVVQ==&name=m3gan"
     headers = {"Content-type": "application/json"}
     response = requests.post(url, headers=headers)
-    reviews = response.text
-    return reviews
+    return response.text.replace("[", "").replace("]", "")
 
 
 app = Flask(__name__)
@@ -47,12 +46,10 @@ def index():
 def analyze():
     client = authenticate_client()
     text = request.form["text"]
-    documents = [text]
-    reviews = getReviews(documents)
+    reviews = getReviews(text)
     # https://stackoverflow.com/questions/952914/how-do-i-make-a-flat-list-out-of-a-list-of-lists
-    reviews = [item for sublist in reviews for item in sublist]
     results = sentiment_analysis(client, reviews)
-    return render_template("index.html", results=reviews)
+    return render_template("index.html", results=results)
 
 
 if __name__ == "__main__":
