@@ -3,6 +3,73 @@
 
 <head>
     <title>Sentiment Analysis</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            display: inline-block;
+            background-color: #ff4858;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #d60c0c;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,6 +87,15 @@
     <p>Neutral confidence: {{ results.neutral }}</p>
     <p>Negative confidence: {{ results.negative }}</p>
     {% endif %}
+    {% if error %}
+    <h2>Error:</h2>
+    <p>{{ error }}</p>
+    {% endif %}
+    {% if partial_results %}
+    <h2>movie name : {{ movie_name }}</h2>
+    <h3>Overall Sentiment: {{ partial_results }}</h2>
+        {% endif %}
+
 </body>
 
 </html>
